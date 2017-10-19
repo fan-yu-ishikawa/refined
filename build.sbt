@@ -96,6 +96,8 @@ lazy val core = crossProject(JSPlatform, JVMPlatform)
       "org.scalacheck" %%% "scalacheck" % scalaCheckVersion % Test,
       macroParadise
     ),
+    addCompilerPlugin(
+      "org.scalamacros" % "paradise" % macroParadiseVersion cross CrossVersion.full),
     libraryDependencies ++= {
       CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, 10)) => Seq.empty
